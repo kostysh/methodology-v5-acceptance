@@ -1,0 +1,33 @@
+{
+  "repository": "kostysh/methodology-v5-acceptance",
+  "branch": "patch-train-20261120",
+  "reviewerId": 431665,
+  "baseline": {
+    "commit": "37b1a48585ba033171ff4629d2e6d54cf4b91079",
+    "manifest": "methodology-ci/baseline.json"
+  },
+  "required": [
+    {
+      "id": "fast",
+      "name": "Patch synthetic fast contract",
+      "appId": 15368,
+      "workflow": {
+        "id": 425033636,
+        "path": ".github/workflows/patch-fast.yml",
+        "blob": "d4bccec5840f932168be256c7c1a07eb544cea0c",
+        "publicRead": true
+      }
+    },
+    {
+      "id": "baseline",
+      "name": "Methodology baseline integrity",
+      "appId": 15368,
+      "workflow": {
+        "id": 425033637,
+        "path": ".github/workflows/patch-baseline.yml",
+        "blob": "8cf1bf82cddcbe6c789d330556379de38a5c7854",
+        "publicRead": true
+      }
+    }
+  ]
+}
