@@ -1,0 +1,22 @@
+name: Synthetic admission
+on:
+  push:
+    branches:
+      - 'ready/**'
+permissions:
+  contents: read
+jobs:
+  verify:
+    name: Fixture audit and fast checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Verify the synthetic change and exact checkout
+        shell: bash
+        run: |
+          set -eu
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test "$(git diff-tree --no-commit-id --name-only -r HEAD)" = "samples/${GITHUB_REF_NAME#ready/}.txt"
+          test "$(cat "samples/${GITHUB_REF_NAME#ready/}.txt")" = "accepted ${GITHUB_REF_NAME#ready/}"
