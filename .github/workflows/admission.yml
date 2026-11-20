@@ -27,7 +27,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           PR: ${{ inputs.pr }}
           # Replace before installing and pinning this workflow's Git blob.
-          INPUTS_COMMIT: c07732959235a1ae88989f011599160fd86eebc6
+          INPUTS_COMMIT: 11f3c3ccb00bc970a374e216ff89e24878585be0
         run: |
           set -euo pipefail
           umask 077
