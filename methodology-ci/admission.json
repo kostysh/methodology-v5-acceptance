@@ -1,7 +1,7 @@
 {
   "repository": "kostysh/methodology-v5-acceptance",
-  "branch": "patch-train-20261120",
-  "reviewerId": 431665,
+  "branch": "patch-rollover-20261120",
+  "reviewerId": 359126636,
   "baseline": {
     "commit": "37b1a48585ba033171ff4629d2e6d54cf4b91079",
     "manifest": "methodology-ci/baseline.json"
@@ -29,5 +29,6 @@
         "publicRead": true
       }
     }
-  ]
+  ],
+  "submitterId": 431665
 }
