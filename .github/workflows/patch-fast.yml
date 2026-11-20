@@ -1,0 +1,22 @@
+name: Patch acceptance fast contract
+on: push
+permissions:
+  contents: read
+jobs:
+  fast:
+    name: Patch synthetic fast contract
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate committed catalog input against the trusted test
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BASELINE: 37b1a48585ba033171ff4629d2e6d54cf4b91079
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "$(mktemp -d)"
+          git init -q
+          gh auth setup-git --hostname github.com
+          git fetch -q --no-tags "https://github.com/$GITHUB_REPOSITORY.git" "$GITHUB_SHA" "$BASELINE"
+          git show "$BASELINE:methodology-ci/fast.py" > fast.py
+          git show "$GITHUB_SHA:products.csv" | python3 fast.py
